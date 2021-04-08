@@ -20,9 +20,9 @@ client.connect(err => {
     const orderedProduct = client.db("medicine").collection("orderedProducts");
 
     //Try to Connect 
-    app.get('/', (req, res) => {
-        res.send("Hello")
-    })
+    // app.get('/', (req, res) => {
+    //     res.send("Hello")
+    // })
 
     app.get('/products', (req, res) => {
         productCollection.find({})
@@ -56,7 +56,7 @@ client.connect(err => {
             })
     })
     app.delete('/delete/:id', (req, res) => {
-        productCollection.deleteOne({_id: ObjectID(req.params.id)})
+        productCollection.deleteOne({_id: ObjectId(req.params.id)})
             .then(result => {
                 console.log(result);
                 res.send(result.deleteCount > 0)
