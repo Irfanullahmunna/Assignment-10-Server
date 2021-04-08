@@ -19,6 +19,9 @@ client.connect(err => {
     const productCollection = client.db("medicine").collection("products");
     const orderedProduct = client.db("medicine").collection("orderedProducts");
 
+    app.get('/', (req, res) => {
+        res.send("Hello")
+    })
     app.get('/products', (req, res) => {
         productCollection.find({})
         .toArray((err, documents) => {
